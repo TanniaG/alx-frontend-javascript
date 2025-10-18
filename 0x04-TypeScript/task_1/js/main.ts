@@ -48,21 +48,8 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Task 4: StudentClass
-
-// Interface for constructor
-interface StudentConstructor {
-  new (firstName: string, lastName: string): StudentClassInterface;
-}
-
-// Interface for the class
-interface StudentClassInterface {
-  workOnHomework(): string;
-  displayName(): string;
-}
-
-// The class implementation
-class StudentClass implements StudentClassInterface {
+// Task 4: StudentClass 
+class StudentClass {
   firstName: string;
   lastName: string;
 
@@ -80,8 +67,12 @@ class StudentClass implements StudentClassInterface {
   }
 }
 
-// Test the class
-const student = new StudentClass("John", "Doe");
-console.log(student.displayName()); // Should output "John"
-console.log(student.workOnHomework()); // Should output "Currently working"
+// THEN add the interfaces after the class
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
 
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
