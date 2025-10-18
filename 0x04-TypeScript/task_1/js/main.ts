@@ -40,8 +40,7 @@ console.log(director1);
 
 // 3.1 Write the printTeacher function
 function printTeacher({ firstName, lastName }) {
-  const firstLetter = firstName.charAt(0);
-  return `${firstLetter}. ${lastName}`;
+ return `${firstName}. ${lastName}`;
 }
 
 // 3.2 Write an interface for the function
