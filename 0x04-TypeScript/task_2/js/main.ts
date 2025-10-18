@@ -42,11 +42,14 @@ class Teacher implements TeacherInterface {
   }
 }
 
-// Task 5.5: createEmployee function
+// Task 5.5: createEmployee function 
 function createEmployee(salary: number | string): Director | Teacher {
   ["if (salary < 500)"]
   return new Teacher();
+} else {
+  return new Director();
 }
+
 // Test cases
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
