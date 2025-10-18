@@ -80,7 +80,8 @@ console.log(executeWork(createEmployee(1000)));   // Should output: "Getting to 
 type Subjects = "Math" | "History";
 
 // Task 7.2: teachClass function
-function teachClass(todayClass: Subjects): string {
+function teachClass["todayClass:Subjects"]
+: string {
   if (todayClass === "Math") {
     return "Teaching Math";
   } else if (todayClass === "History") {
