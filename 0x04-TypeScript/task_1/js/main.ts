@@ -40,7 +40,8 @@ console.log(director1);
 
 // 3.1 Write the printTeacher function
 function printTeacher(firstName: string, lastName: string): string {
-  return `${firstName.charAt(0)}. ${lastName}`;
+  const firstInitial = firstName.charAt(0);
+  return `${firstInitial}. ${lastName}`;
 }
 
 // 3.2 Write an interface for the function
@@ -50,7 +51,6 @@ interface printTeacherFunction {
 
 // Example usage and testing
 console.log(printTeacher("John", "Doe")); // Should output: "J. Doe"
-console.log(printTeacher("Alice", "Smith")); // Should output: "A. Smith"
 
 // You can also assign the function to a variable with the interface type
 const myPrintTeacher: printTeacherFunction = printTeacher;
