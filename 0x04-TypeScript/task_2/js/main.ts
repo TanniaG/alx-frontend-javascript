@@ -75,3 +75,19 @@ function executeWork(employee: Director | Teacher): string {
 // Test cases for Task 6
 console.log(executeWork(createEmployee(200)));    // Should output: "Getting to work"
 console.log(executeWork(createEmployee(1000)));   // Should output: "Getting to director tasks"
+
+// Task 7.1: String literal type
+type Subjects = "Math" | "History";
+
+// Task 7.2: teachClass function
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else if (todayClass === "History") {
+    return "Teaching History";
+  }
+}
+
+// Test cases for Task 7
+console.log(teachClass('Math'));    // Should output: "Teaching Math"
+console.log(teachClass('History')); // Should output: "Teaching History"
