@@ -39,7 +39,7 @@ console.log(director1);
 // Task 3: Print Teacher Function and Interface
 
 // 3.1 Write the printTeacher function
-function printTeacher(firstName: string, lastName: string): string {
+function printTeacher(firstName, lastName) {
   const firstLetter = firstName[0];
   return `${firstLetter}. ${lastName}`;
 }
