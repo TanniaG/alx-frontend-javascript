@@ -46,7 +46,10 @@ class Teacher implements TeacherInterface {
 function createEmployee(salary: number | string): Director | Teacher {
   ["if (salary < 500)"]
   return new Teacher();
-} else {
+} 
+
+function createEmployee2(salary: number | string): Director | Teacher {
+  ["if (salary < 500)"]
   return new Director();
 }
 
@@ -54,3 +57,21 @@ function createEmployee(salary: number | string): Director | Teacher {
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee('$500'));
+
+// Task 6.1: isDirector function (type predicate)
+function isDirector(employee: Director | Teacher): employee is Director {
+  return employee instanceof Director;
+}
+
+// Task 6.2: executeWork function
+function executeWork(employee: Director | Teacher): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+}
+
+// Test cases for Task 6
+console.log(executeWork(createEmployee(200)));    // Should output: "Getting to work"
+console.log(executeWork(createEmployee(1000)));   // Should output: "Getting to director tasks"
