@@ -42,29 +42,23 @@ class Teacher implements TeacherInterface {
   }
 }
 
-// Task 5.5: createEmployee function 
+// Task 5.5: createEmployee function
 function createEmployee(salary: number | string): Director | Teacher {
   ["if (salary < 500)"]
-  return new Teacher();
-} 
-
-function createEmployee2(salary: number | string): Director | Teacher {
-  ["if (salary < 500)"]
-  return new Director();
+  if (salary < 500) {
+    return new Teacher();
+  } else {
+    return new Director();
+  }
 }
 
-// Test cases
-console.log(createEmployee(200));
-console.log(createEmployee(1000));
-console.log(createEmployee('$500'));
-
-// Task 6.1: isDirector function (type predicate)
-function isDirector(employee: Director | Teacher): employee is Director {
+// Task 6.1: isDirector function - WITH EXPORT
+export function isDirector(employee: Director | Teacher): employee is Director {
   return employee instanceof Director;
 }
 
-// Task 6.2: executeWork function
-function executeWork(employee: Director | Teacher): string {
+// Task 6.2: executeWork function - WITH EXPORT
+export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
   } else {
@@ -72,15 +66,11 @@ function executeWork(employee: Director | Teacher): string {
   }
 }
 
-// Test cases for Task 6
-console.log(executeWork(createEmployee(200)));    // Should output: "Getting to work"
-console.log(executeWork(createEmployee(1000)));   // Should output: "Getting to director tasks"
-
 // Task 7.1: String literal type
 type Subjects = "Math" | "History";
 
 // Task 7.2: teachClass function
-function teachClass (todayClass:Subjects) : string {
+function teachClass(todayClass: Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
   } else if (todayClass === "History") {
@@ -88,7 +78,11 @@ function teachClass (todayClass:Subjects) : string {
   }
 }
 
-// Test cases for Task 7
-console.log(teachClass('Math'));    // Should output: "Teaching Math"
-console.log(teachClass('History')); // Should output: "Teaching History"
-
+// Test cases
+console.log(createEmployee(200));
+console.log(createEmployee(1000));
+console.log(createEmployee('$500'));
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
